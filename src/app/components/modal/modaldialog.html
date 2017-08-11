@@ -1,0 +1,34 @@
+
+<div id="dialog-form" title="Add sticker to library">
+  <p class="validateTips">All form fields are required.</p>
+ 
+ 
+    <fieldset>
+    <form name="modal"ng-submit="saveSticker()" novalidate>
+    <div ng-class="{'has-error':modal.name.$invalid  && modal.name.$dirty}">
+      <label for="name">Title</label>
+      <input type="text" name="name" ng-model="addStickerFormData.title" id="name" placeholder="Title of Sticker" required  class="form-control" ng-minLength="5" ng-maxLength="20">
+      
+      <span class="has-error help-block">
+        <span ng-show="modal.name.$error.required && modal.name.$dirty">Title is a required Field</span>
+        <span ng-show="modal.name.$error.minlength">Title must be at least 5 characters</span>
+        <span ng-show="modal.name.$error.maxlength">Title can't be more than 15 characters</span>
+     </span>
+    </div>  
+      <div ng-class="{'has-error':modal.name.$invalid}">
+      <label for="file">File</label>
+      <input type="file" required name="file" ng-model="addStickerFormData.images"   accept="image/*" app-filereader image="image2" id="file" class="text ui-widget-content ui-corner-all" 
+        resize-max-height="150"
+        resize-max-width="150"
+        resize-quality="0.9"
+      >
+      </div>
+      <div id="test">
+        <img ng-show="image2" ng-src="{{image2.resized.dataURL}}" type="{{image2.file.type}}" id="sticker"/>
+      </div>  
+      <span ng-show="image2" class="help-block">Resized per directive</span> 
+       <input ng-disabled="modal.$invalid" class="btn btn-default btn-success"type="submit" tabindex="-1" value="Submit">
+   </form>   
+    </fieldset>
+  
+</div>

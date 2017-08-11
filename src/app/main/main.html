@@ -1,0 +1,52 @@
+<div class="container">
+    <div>
+        <acme-navbar creationDate="main.creationDate" />
+    </div>
+    <div class="row">
+        <div class="jumbotron col-sm-7 text-center">
+            <h4 class="alert alert-info">Photo Area</h4>
+           
+            <p></p>
+            <form action="">
+             <button class="btn btn-primary btn-block" type="reset" ng-click="main.reload()">Start Over</button>
+                <div class="form-group">
+                    <label for="">Upload a New Photo</label>
+                </div>
+                <div class="form-control">
+                    <input type="file" id = "file" accept="image/*" image="image" resize-max-height="500"
+                            resize-max-width="500"
+                            resize-quality="0.9">
+
+                </div>
+
+                <div id="banner">
+                    <img  ng-src="{{image.resized.dataURL}}" type="{{image.file.type}}"  />
+                </div>
+            </form>
+        </div>
+        <div class="gutter col-sm-1"></div>
+        <div class="jumbotron col-sm-4 text-center">
+            <h4 class="alert alert-info">Stickers Area</h4>
+           
+            
+            <button class="btn btn-primary" ng-click="addSticker()">Upload new sticker</button>
+
+<h1></h1>
+    <table class="table table-hover table-bordered">
+    <thead>
+        <th>Title</th>
+        <th>Sticker</th>
+    </thead>
+        <tr ng-repeat="sticker in stickers">
+            <td>{{sticker.title}}</td>
+            <td style="" class="stickers custom-table-tr"><img delete-sticker class="draggable" drag-stickers src="{{ sticker.images}}" alt="" style="width:100px;height:100px;"> </td>
+
+        </tr>
+   </table>
+
+
+
+
+   </div>
+    </div>
+</div>
